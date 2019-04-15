@@ -1,0 +1,31 @@
+<html >
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Cursos TdeA</title>
+</head>
+<body>
+    <div class="panel-group main-container">
+         <div class="row">
+        <div class="col-md-12">
+             <a class="btn btn-secondary btn-lg active" href="/index" role="button">Inicio</a>
+            
+            {{#if coordinador }}
+                    <a class="btn btn-secondary btn-lg active" href="/addcourse" role="button">Crear Cursos</a>
+                    <a class="btn btn-secondary btn-lg active" href="/seeaspirant" role="button">Aministrar Aspirantes y Cursos</a>
+                    <a class="btn btn-secondary btn-lg active" href="/adduser" role="button">Aministrar Usuarios</a>
+        
+            {{else}}
+                <a class="btn btn-secondary btn-lg active" href="/seecourse" role="button">Ver Cursos</a>
+                {{#if aspirante}}
+                    <a class="btn btn-secondary btn-lg active" href="/enroll" role="button">Inscripción</a>
+                    {{/if}}
+            {{/if}}
+            {{#if usuariosesion}}
+                 <a class="btn btn-primary btn-lg active" href="/logout" role="button">Salir</a>
+            {{/if}}
+        </div>
+        </div>
+    </div>

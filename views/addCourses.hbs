@@ -1,0 +1,46 @@
+{{>header}}
+<div class="panel-group main-container">
+    <h1><span class="badge badge-secondary">Crear Cursos</span></h1>
+    <div class="row">
+        <div class="col-md-3">
+            <form action="/addcourse" method="POST">
+            <div class="alert alert-{{{alertclass}}}" role="alert" style="display:{{{displaymessage}}};">
+                <label >{{{ curso.validacion }}}</label>
+            </div>
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="Id del curso" required value="{{{ curso.id }}}">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del curso" required value="{{{ curso.nombre }}}">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required value="{{{ curso.descripcion }}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="number" class="form-control" id="valor" name="valor" placeholder="Valor del curso" required value="{{{ curso.valor }}}">
+            </div>
+            <div class="form-group">
+                <label for="modalidad">Modalidad</label>
+                <select class="form-control" id="modalidad" name="modalidad" value="{{{ curso.modalidad }}}">
+                    <option value="">[Seleccione]</option>
+                <option value="Presencial">Presencial</option>
+                <option value="Virtual">Virtual</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="intensidad">Intensidad Horaria</label>
+                <input type="number" class="form-control" id="intensidad" name="intensidad" placeholder="Intensidad horaria del curso" value="{{{ curso.intensidad }}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+            </form>
+        </div>
+        <div class="col-md-9">
+            {{{listarCursos}}}
+        </div>
+    </div>
+</div>
+{{>footer}}

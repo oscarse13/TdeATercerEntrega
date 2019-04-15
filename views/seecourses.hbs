@@ -1,0 +1,34 @@
+{{>header}}
+<div class="panel-group main-container">
+    <h1><span class="badge badge-secondary">Ver Cursos</span></h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="accordion">
+                 {{#if cursos}}
+                 {{#each cursos}}
+                        <div class="card">
+                            <div class="card-header" id="heading{{this.id}}">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="true" aria-controls="collapse{{this.id}}">
+                                     Curso:   {{this.nombre}}
+                                     Valor:   {{this.valor}}
+                                </button>
+                            </h5>
+                            </div>
+
+                            <div id="collapse{{this.id}}" class="collapse collapsed" aria-labelledby="heading{{this.id}}" data-parent="#accordion">
+                            <div class="card-body">
+                                <li>Descripción: {{this.descripcion}}</li>
+                                <li>Modalidad:   {{this.modalidad}}</li>
+                                <li>Intensidad Horaria:   {{this.intensidad}}</li>
+                            </div>
+                        </div>
+                {{/each}}
+                {{else}}
+                No hay cursos registrados
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{>footer}}

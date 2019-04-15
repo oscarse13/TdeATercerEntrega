@@ -1,0 +1,22 @@
+{{>header}}
+ <div class="panel-group main-container">
+    <pre style="width: 890px;">Tecnológico de Antioquia - Información de Cursos</pre>
+    <img src="http://www.tdea.edu.co/images/tdea/galeria/valla-virtual/2019/inscripciones_tdea_valla_27_marzo_2019_2.jpg">
+    <br>
+     <div class="alert alert-{{{alertclass}}}" role="alert" style="display:{{{displaymessage}}};">
+                <label >{{{ usuario.validacion }}}</label>
+    </div>
+    
+     {{#if usuariosesion}}
+        <h1><span class="badge badge-secondary">Bienvenido  {{{ usuariosesion.nombre }}}</span></h1>     
+    {{else}}
+         <form class="form-inline" action="/login" method="POST">            
+            <label for="usuario">Usuario:</label>
+            <input type="number" class="form-control" id="usuario" name="usuario">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>  
+     {{/if}}
+</div>
+{{>footer}}

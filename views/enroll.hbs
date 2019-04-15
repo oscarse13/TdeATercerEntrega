@@ -1,0 +1,40 @@
+{{>header}}
+<div class="panel-group main-container">
+    <h1><span class="badge badge-secondary">Inscripción</span></h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/enroll" method="POST">
+            <div class="alert alert-{{{alertclass}}}" role="alert" style="display:{{{displaymessage}}};">
+                <label >{{{ aspirante.validacion }}}</label>
+            </div>
+            <div class="form-group">
+                <label for="id">Documento Identidad</label>
+                <input type="number" class="form-control" id="documento" name="documento" placeholder="Documento Identidad del aspirante" required value="{{{ aspirante.documento }}}">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del aspirante" required value="{{{ aspirante.nombre }}}">
+            </div>
+             <div class="form-group">
+                <label for="nombre">Correo Electrónico</label>
+                <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo del aspirante" required value="{{{ aspirante.correo }}}">
+            </div>
+            <div class="form-group">
+                <label for="valor">Teléfono</label>
+                <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Teléfono del aspirante" required value="{{{ aspirante.telefono }}}">
+            </div>
+            <div class="form-group">
+                <label for="modalidad">Curso</label>
+                <select class="form-control" id="idCurso" name="idCurso">
+                    <option value="">[Seleccione]</option>
+                     {{#each cursos}}
+                        <option value="{{this.id}}">{{this.nombre}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{>footer}}

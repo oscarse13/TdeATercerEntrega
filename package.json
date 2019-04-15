@@ -1,0 +1,27 @@
+{
+  "name": "ejercicio2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "audit": "0.0.6",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "fix": "0.0.6",
+    "hbs": "^4.0.3",
+    "jquery": "^3.4.0",
+    "mongoose": "^5.5.1",
+    "node-gyp": "^3.8.0",
+    "nodejs": "0.0.0",
+    "nodemon": "^1.18.10",
+    "table-builder": "^2.1.1",
+    "yargs": "^13.2.2"
+  }
+}

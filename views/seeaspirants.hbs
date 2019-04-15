@@ -1,0 +1,104 @@
+{{>header}}
+<div class="panel-group main-container">
+    <h1><span class="badge badge-secondary">Aministrar Aspirantes y Cursos</span></h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="accordion">
+                 {{#if cursos}}
+                    {{#each cursos}}
+                            <div class="card">
+                                <div class="card-header" id="heading{{this.id}}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="true" aria-controls="collapse{{this.id}}">
+                                        Id:   {{this.id}}
+                                        Curso:   {{this.nombre}}
+                                    </button>
+                                </h5>
+                                </div>
+
+                                <div id="collapse{{this.id}}" class="collapse collapsed" aria-labelledby="heading{{this.id}}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        {{#if this.aspirantes}}
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Documento</th>
+                                                        <th>Nombre</th>
+                                                    </tr>                                        
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        {{#each this.aspirantes}}
+                                                            <tr>
+                                                                <td>{{this.documento}}</td>
+                                                                <td>{{this.nombre}}</th>
+                                                            </tr>   
+                                                        {{/each}}
+                                                    
+                                                </tbody>
+                                            </table>
+                                        
+                                        {{else}}
+                                        No hay aspirantes para este curso
+                                        {{/if}}
+                                        <br>
+                                        <a href="/closecourse?id={{this.id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cerrar curso</a>
+                                    </div>
+                                </div>
+                            </div>
+                    {{/each}}
+                 {{else}}
+                No hay cursos disponibles
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-md-6">
+           <h3>Retirar estudiante de curso</h3>
+           <div class="row">
+                <form action="/unsubscribe" method="POST">
+                <div class="alert alert-{{{alertclass}}}" role="alert" style="display:{{{displaymessage}}};">
+                    <label >{{{ aspirante.validacion }}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="id">Documento Identidad</label>
+                    <input type="number" class="form-control" id="documento" name="documento" placeholder="Documento Identidad del aspirante a retirar" required value="{{{ aspirante.documento }}}">
+                </div>
+                <div class="form-group">
+                    <label for="valor">Curso</label>
+                    <input type="number" class="form-control" id="idCurso" name="idCurso" placeholder="Id del curso" required value="{{{ aspirante.idCurso }}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Retirar</button>
+                </form>
+            </div>
+            <div class="row">
+                 {{#if curso}}
+                    Curso:   {{curso.nombre}}<br>
+                            {{#if curso.aspirantes}}
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Documento</th>
+                                            <th>Nombre</th>
+                                        </tr>                                        
+                                    </thead>
+                                    <tbody>
+                                        
+                                            {{#each curso.aspirantes}}
+                                                <tr>
+                                                    <td>{{this.documento}}</td>
+                                                    <td>{{this.nombre}}</th>
+                                                </tr>   
+                                            {{/each}}
+                                        
+                                    </tbody>
+                                </table>
+                            
+                            {{else}}
+                            No hay aspirantes para este curso
+                            {{/if}}
+                  {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{>footer}}
