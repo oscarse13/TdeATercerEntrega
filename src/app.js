@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '..', 'views'));
 
-mongoose.connect('mongodb+srv://tdea:tdea@cluster0-3ctbg.azure.mongodb.net/tdea?retryWrites=true', (err) =>{
+mongoose.connect('mongodb+srv://tdea:tdea@cluster0-3ctbg.azure.mongodb.net/tdea?retryWrites=true', { useNewUrlParser: true }, (err) =>{
     if (err)
         return console.log("Error conectando a DB: " + err);
 
